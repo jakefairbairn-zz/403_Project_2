@@ -204,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactForm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MissionQuestions.cs" />
@@ -217,6 +218,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\elder_d_todd_christofferson.jpg" />
+    <Content Include="Content\Images\Missionaries-elders.jpg" />
+    <Content Include="Content\Images\MissionFlags\Brazil_Flag.png" />
+    <Content Include="Content\Images\MissionFlags\Japan_Flag.png" />
+    <Content Include="Content\Images\MissionFlags\USA_Flag.png" />
+    <Content Include="Content\Images\president_thomas_s_monson.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

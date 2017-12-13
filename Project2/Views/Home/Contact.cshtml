@@ -1,17 +1,112 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model Project2.Models.ContactForm
+
+@{
+    ViewBag.Title = "Index";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<style>
+    .vresize {
+        line-height: 1.5em;
+        min-height: 4.5em;
+        resize: vertical;
+    }
+</style>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1">
+            @*Spacer*@
+        </div>
+
+        <div class="panel panel-default col-lg-4 col-md-6 col-sm-5">
+            <div class="panel-heading">
+                <h2>Feeling formal?</</h2>
+                <h4>Fill this out and we'll get back to you quickly.</h4>
+            </div>
+            <div class="panel-body">
+                @*begin contact form*@
+                @using (Html.BeginForm("SubmitContactForm", "Contact", FormMethod.Post))
+                {
+                    //input for submitter's name
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            @Html.TextBoxFor(m => m.Name, new { required = "required", placeholder = "Name", @class = "form-control" })
+                        </div>
+                    </div>
+                    //input for submitter's email
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            @Html.TextBoxFor(m => m.Email, new { required = "required", @type = "email", placeholder = "Email", @class = "form-control" })
+                        </div>
+                    </div>
+                    //dropdown menu for possible types of reasons for contact
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+                            @Html.DropDownListFor(m => m.Type, new List<SelectListItem>
+                               { new SelectListItem{Text="General Inquiry", Value="General Inquiry"},
+                                 new SelectListItem{Text="Incident", Value="Incident" },
+                                 new SelectListItem{Text="Site Enhancement", Value="Site Enhancement" },
+                                 new SelectListItem{Text="Other", Value="Other" } },
+                                 "Select a menu option...",
+                                new { required = "required", @class = "form-control" })
+                        </div>
+                    </div>
+                    //input for comment
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+                            @Html.TextAreaFor(m => m.Text, new { required = "required", rows = "4", placeholder = "Comment", @class = "form-control vresize" })
+                        </div>
+                    </div>
+                    //submit and clear data buttons
+                    <div>
+                        <button type="submit" class="btn btn-primary pull-right">
+                            Send <span class="glyphicon glyphicon-send"></span>
+                        </button>
+                        <button type="reset" name="reset" value="Reset" class="btn btn-secondary pull-left">
+                            Clear <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+            @*Spacer*@
+        </div>
+        @*display phone and email contact options*@
+        <div class="panel panel-default col-lg-4 col-md-6 col-sm-5">
+            <div class="panel-heading">
+                <h2>Prefer something else?</</h2>
+                <h4>Don't worry, we've got you covered.</h4>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <fieldset>
+                        <legend>Phone</legend>
+                        1-800-641-1466 (1-800-MISSION)
+                    </fieldset>
+                </div>
+                <br />
+                <div>
+                    <fieldset>
+                        <legend>Email</legend>
+                        missionary_portal@gmail.com
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-1">
+            @*Spacer*@
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
